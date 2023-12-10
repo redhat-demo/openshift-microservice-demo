@@ -976,8 +976,6 @@ objects:
         - emptyDir: {}
           name: mongodb-data
     test: false
-    - type: ConfigChange
-
 - apiVersion: v1
   kind: ConfigMap
   metadata:
