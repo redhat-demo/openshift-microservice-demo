@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: template.openshift.io/v1
 kind: Template
 labels:
   demo: msa-demo
@@ -56,8 +56,8 @@ objects:
         - name: BOWER_MIRROR
           value: ${BOWER_MIRROR}
         from:
-          kind: ImageStreamTag
-          name: nodejs:8
+          kind: DockerImage
+          name: registry.redhat.io/rhscl/nodejs-8-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -190,8 +190,8 @@ objects:
           value: ${MAVEN_MIRROR_URL}
         forcePull: true
         from:
-          kind: ImageStreamTag
-          name: fis-java-openshift:2.0
+          kind: DockerImage
+          name: registry.redhat.io/jboss-fuse-6/fis-java-openshift:2.0
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -311,8 +311,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: jboss-eap70-openshift:1.5
+          kind: DockerImage
+          name: registry.redhat.io/jboss-eap-7/eap70-openshift:1.5
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -500,8 +500,8 @@ objects:
         containerNames:
         - inventory-postgresql
         from:
-          kind: ImageStreamTag
-          name: postgresql:latest
+          kind: DockerImage
+          name: registry.redhat.io/rhscl/postgresql-10-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -548,8 +548,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: jboss-webserver31-tomcat8-openshift:1.0
+          kind: DockerImage
+          name: registry.redhat.io/jboss-webserver-3/webserver31-tomcat8-openshift:1.0
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -751,8 +751,8 @@ objects:
         containerNames:
         - catalog-mongodb
         from:
-          kind: ImageStreamTag
-          name: mongodb:3.2
+          kind: DockerImage
+          name: registry.redhat.io/rhscl/mongodb-32-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -787,8 +787,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: redhat-openjdk18-openshift:1.1
+          kind: DockerImage
+          name: registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:1.1
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1009,8 +1009,8 @@ objects:
         containerNames:
         - rating-mongodb
         from:
-          kind: ImageStreamTag
-          name: mongodb:3.2
+          kind: DockerImage
+          name: registry.redhat.io/rhscl/mongodb-32-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -1062,8 +1062,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: redhat-openjdk18-openshift:1.1
+          kind: DockerImage
+          name: registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:1.1
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1199,8 +1199,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: jboss-decisionserver64-openshift:1.0
+          kind: DockerImage
+          name: registry.redhat.io/jboss-decisionserver-6/decisionserver64-openshift:1.0
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1352,8 +1352,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: redhat-openjdk18-openshift:1.1
+          kind: DockerImage
+          name: registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:1.1
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1525,8 +1525,8 @@ objects:
         containerNames:
         - review-postgresql
         from:
-          kind: ImageStreamTag
-          name: postgresql:latest
+          kind: DockerImage
+          name: registry.redhat.io/rhscl/postgresql-10-rhel7:latest
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
