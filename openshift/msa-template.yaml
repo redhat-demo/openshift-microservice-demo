@@ -56,8 +56,9 @@ objects:
         - name: BOWER_MIRROR
           value: ${BOWER_MIRROR}
         from:
-          kind: DockerImage
-          name: registry.redhat.io/rhscl/nodejs-8-rhel7:latest
+          kind: ImageStreamTag
+          name: nodejs:14-ubi7
+          namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
     - imageChange: {}
@@ -189,8 +190,9 @@ objects:
           value: ${MAVEN_MIRROR_URL}
         forcePull: true
         from:
-          kind: DockerImage
-          name: registry.redhat.io/jboss-fuse-6/fis-java-openshift:2.0
+          kind: ImageStreamTag
+          name: fuse7-java-openshift:1.12
+          namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
     - type: ConfigChange
