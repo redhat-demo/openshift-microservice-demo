@@ -464,7 +464,7 @@ objects:
             value: ${INVENTORY_DB_PASSWORD}
           - name: POSTGRESQL_DATABASE
             value: inventorydb
-          image: postgresql
+          image: registry.redhat.io/rhscl/postgresql-10-rhel7:latest
           imagePullPolicy: Always
           name: inventory-postgresql
           volumeMounts:
@@ -491,16 +491,6 @@ objects:
         volumes:
         - name: inventory-postgresql-data
           emptyDir: {}
-    triggers:
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - inventory-postgresql
-        from:
-          kind: ImageStreamTag
-          name: postgresql:latest
-          namespace: ${IMAGE_STREAM_NAMESPACE}
-      type: ImageChange
     - type: ConfigChange
 - apiVersion: v1
   kind: Service
@@ -696,7 +686,7 @@ objects:
             value: catalogdb
           - name: MONGODB_ADMIN_PASSWORD
             value: ${CATALOG_DB_PASSWORD}
-          image: mongodb
+          image: registry.redhat.io/rhscl/mongodb-32-rhel7:latest
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 10
@@ -741,16 +731,6 @@ objects:
         - emptyDir: {}
           name: mongodb-data
     test: false
-    triggers:
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - catalog-mongodb
-        from:
-          kind: ImageStreamTag
-          name: mongodb:3.2
-          namespace: ${IMAGE_STREAM_NAMESPACE}
-      type: ImageChange
     - type: ConfigChange
 # Rating Service
 - apiVersion: v1
@@ -953,7 +933,7 @@ objects:
             value: ratingdb
           - name: MONGODB_ADMIN_PASSWORD
             value: ${RATING_DB_PASSWORD}
-          image: mongodb
+          image: registry.redhat.io/rhscl/mongodb-32-rhel7:latest
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 10
@@ -998,16 +978,6 @@ objects:
         - emptyDir: {}
           name: mongodb-data
     test: false
-    triggers:
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - rating-mongodb
-        from:
-          kind: ImageStreamTag
-          name: mongodb:3.2
-          namespace: ${IMAGE_STREAM_NAMESPACE}
-      type: ImageChange
     - type: ConfigChange
 
 - apiVersion: v1
@@ -1484,7 +1454,7 @@ objects:
             value: ${REVIEW_DB_PASSWORD}
           - name: POSTGRESQL_DATABASE
             value: review
-          image: postgresql
+          image: registry.redhat.io/rhscl/postgresql-10-rhel7:latest
           imagePullPolicy: Always
           name: review-postgresql
           volumeMounts:
@@ -1511,16 +1481,6 @@ objects:
         volumes:
         - name: review-postgresql-data
           emptyDir: {}
-    triggers:
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - review-postgresql
-        from:
-          kind: ImageStreamTag
-          name: postgresql:latest
-          namespace: ${IMAGE_STREAM_NAMESPACE}
-      type: ImageChange
     - type: ConfigChange
 - apiVersion: v1
   kind: Service
