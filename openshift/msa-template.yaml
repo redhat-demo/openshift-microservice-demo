@@ -189,8 +189,8 @@ objects:
           value: ${MAVEN_MIRROR_URL}
         forcePull: true
         from:
-          kind: ImageStreamTag
-          name: fis-java-openshift:2.0
+          kind: DockerImage
+          name: registry.redhat.io/jboss-fuse-6/fis-java-openshift:2.0
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -310,8 +310,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: jboss-eap70-openshift:1.5
+          kind: DockerImage
+          name: registry.redhat.io/jboss-eap-7/eap70-openshift:1.5
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -547,8 +547,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: jboss-webserver31-tomcat8-openshift:1.0
+          kind: DockerImage
+          name: registry.redhat.io/jboss-webserver-3/webserver31-tomcat8-openshift:1.0
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -786,8 +786,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: redhat-openjdk18-openshift:1.1
+          kind: DockerImage
+          name: registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:1.1
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1061,8 +1061,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: redhat-openjdk18-openshift:1.1
+          kind: DockerImage
+          name: registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:1.1
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1198,8 +1198,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: jboss-decisionserver64-openshift:1.0
+          kind: DockerImage
+          name: registry.redhat.io/jboss-decisionserver-6/decisionserver64-openshift:1.0
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -1351,8 +1351,8 @@ objects:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
         from:
-          kind: ImageStreamTag
-          name: redhat-openjdk18-openshift:1.1
+          kind: DockerImage
+          name: registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:1.1
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
