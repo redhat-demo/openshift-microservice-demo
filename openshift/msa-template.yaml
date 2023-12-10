@@ -491,7 +491,6 @@ objects:
         volumes:
         - name: inventory-postgresql-data
           emptyDir: {}
-    - type: ConfigChange
 - apiVersion: v1
   kind: Service
   metadata:
